@@ -305,6 +305,82 @@
             font-size: 0.9rem;
         }
 
+        /* Thumbnail Card Styles */
+        .news-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .card-bg-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
+            z-index: 1;
+        }
+
+        .news-card:hover .card-bg-thumb {
+            transform: scale(1.05);
+        }
+
+        .news-card.has-thumbnail .news-card-header {
+            background: linear-gradient(135deg, rgba(0, 74, 153, 0.85), rgba(0, 53, 112, 0.85));
+            position: relative;
+            z-index: 2;
+            text-shadow: none;
+        }
+
+        .news-card.has-thumbnail .news-card-body {
+            position: relative;
+            z-index: 2;
+        }
+
+        .news-card.has-thumbnail .news-card-body p {
+            color: var(--white);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            font-weight: 500;
+        }
+
+        .news-card.has-thumbnail .news-card-footer {
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            padding: 0 2rem 2rem;
+        }
+
+        .news-card.has-thumbnail .footer-btn {
+            background: rgba(255, 255, 255, 0.6);
+            color: var(--ymca-blue);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+        }
+
+        .news-card.has-thumbnail .news-card-date {
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
         /* No Results State */
         .no-results {
             text-align: center;
@@ -730,8 +806,8 @@
                 <img src="88403890-23fd-4ec1-b5ea-6ff78909028d.png" alt="88403890 23Fd 4Ec1 B5Ea 6Ff78909028D" loading="lazy">
             </div>
             
-            <div class="gallery-item" onclick="openImageViewer('Clock Tower2.jpg')">
-                <img src="Clock Tower2.jpg" alt="Clock Tower2" loading="lazy">
+            <div class="gallery-item" onclick="openImageViewer('clock.jpg')">
+                <img src="clock.jpg" alt="Clock" loading="lazy">
             </div>
             
             </div>

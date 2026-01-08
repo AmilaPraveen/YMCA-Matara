@@ -349,6 +349,82 @@ def get_common_styles() -> str:
             font-size: 0.9rem;
         }
 
+        /* Thumbnail Card Styles */
+        .news-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .card-bg-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
+            z-index: 1;
+        }
+
+        .news-card:hover .card-bg-thumb {
+            transform: scale(1.05);
+        }
+
+        .news-card.has-thumbnail .news-card-header {
+            background: linear-gradient(135deg, rgba(0, 74, 153, 0.85), rgba(0, 53, 112, 0.85));
+            position: relative;
+            z-index: 2;
+            text-shadow: none;
+        }
+
+        .news-card.has-thumbnail .news-card-body {
+            position: relative;
+            z-index: 2;
+        }
+
+        .news-card.has-thumbnail .news-card-body p {
+            color: var(--white);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            font-weight: 500;
+        }
+
+        .news-card.has-thumbnail .news-card-footer {
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            padding: 0 2rem 2rem;
+        }
+
+        .news-card.has-thumbnail .footer-btn {
+            background: rgba(255, 255, 255, 0.6);
+            color: var(--ymca-blue);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+        }
+
+        .news-card.has-thumbnail .news-card-date {
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
         /* No Results State */
         .no-results {
             text-align: center;
@@ -735,8 +811,21 @@ def generate_news_html(programmes: list, years: list) -> str:
     if programmes:
         cards_html = ""
         for prog in programmes:
+            # Check for thumbnail
+            thumbnail_file = prog.get('thumbnail_file')
+            thumb_html = ""
+            card_class = "news-card"
+            
+            if thumbnail_file:
+                thumb_html = f'''
+                <img src="news/{prog['folder']}/{thumbnail_file}" class="card-bg-thumb" alt="" loading="lazy">
+                <div class="card-overlay"></div>
+                '''
+                card_class += " has-thumbnail"
+
             cards_html += f'''
-            <a href="news/{prog['folder']}/index.html" class="news-card" data-year="{prog['year']}" data-month="{prog['month']}">
+            <a href="news/{prog['folder']}/index.html" class="{card_class}" data-year="{prog['year']}" data-month="{prog['month']}">
+                {thumb_html}
                 <div class="news-card-header">
                     <h3>{prog['title']}</h3>
                     <div class="news-card-date">
@@ -747,7 +836,7 @@ def generate_news_html(programmes: list, years: list) -> str:
                     <p>{prog['description']}</p>
                 </div>
                 <div class="news-card-footer">
-                    View Programme →
+                    {f'<span class="footer-btn">View Programme →</span>' if thumbnail_file else 'View Programme →'}
                 </div>
             </a>
             '''
@@ -1074,6 +1163,13 @@ def scan_programmes() -> list:
                 year = '2024'
                 month = '1'
             
+            # Detect thumbnail file (prefer png, then jpg, then jpeg)
+            thumbnail_file = None
+            for ext in ['.png', '.jpg', '.jpeg']:
+                if (item / f"thumbnail{ext}").exists():
+                    thumbnail_file = f"thumbnail{ext}"
+                    break
+
             programmes.append({
                 'folder': item.name,
                 'title': title,
@@ -1082,7 +1178,8 @@ def scan_programmes() -> list:
                 'description': description,
                 'year': year,
                 'month': month,
-                'path': item
+                'path': item,
+                'thumbnail_file': thumbnail_file
             })
             
         except json.JSONDecodeError as e:
@@ -1102,8 +1199,8 @@ def get_media_files(folder_path: Path) -> list:
     for item in folder_path.iterdir():
         if item.is_file():
             ext = item.suffix.lower()
-            # Skip special files
-            if item.name.lower() in ('info.json', 'article.md', 'description.txt', 'index.html'):
+            # Skip special files and thumbnails
+            if item.name.lower() in ('info.json', 'article.md', 'description.txt', 'index.html') or item.stem.lower() == 'thumbnail':
                 continue
             # Check if it's a media file
             if ext in IMAGE_EXTENSIONS or ext in VIDEO_EXTENSIONS:
