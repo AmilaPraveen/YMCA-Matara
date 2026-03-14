@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Latest news and programmes from YMCA Matara, Sri Lanka.">
-    <title>News & Programmes | YMCA Matara</title>
+    <meta name="description" content="SFT Lecture 2025 - YMCA Matara Programme">
+    <title>SFT Lecture 2025 | YMCA Matara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/ymca.png">
+    <link rel="icon" type="image/png" href="../../images/ymca.png">
     <style>
         :root {
             --ymca-blue: #004a99;
@@ -744,8 +744,8 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/ymca.png" class="logo-icon" alt="YMCA Logo">
+            <a href="../../index.html" class="logo">
+                <img src="../../images/ymca.png" class="logo-icon" alt="YMCA Logo">
                 <div class="logo-text">
                     YMCA Matara
                     <span>Sri Lanka</span>
@@ -753,8 +753,8 @@
             </a>
             <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">About</a></li>
-                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="../../index.html">About</a></li>
+                <li><a href="../../news.html" class="active">News</a></li>
             </ul>
         </div>
     </nav>
@@ -762,113 +762,43 @@
     <!-- Page Header -->
     <header class="page-header">
         <div class="page-header-content">
-            <h1>News & Programmes</h1>
-            <p>Stay updated with our latest activities and completed programmes</p>
+            <h1>SFT Lecture 2025</h1>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
+        <a href="../../news.html" class="back-link">← Back to News</a>
         
-        <!-- Filter Section -->
-        <div class="filter-section">
-            <div class="filter-row">
-                <span class="filter-label">Filter by:</span>
-                <select id="yearFilter" class="filter-select" onchange="filterProgrammes()">
-                    <option value="all">All Years</option>
-                        <option value="2026">2026</option>
-                        <option value="2025">2025</option>
-
-                </select>
-                <select id="monthFilter" class="filter-select" onchange="filterProgrammes()">
-                    <option value="all">All Months</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-
-                </select>
+        <article class="programme-content">
+            <div class="programme-meta">
+                <span>📅</span>
+                <span>July 15, 2025</span>
             </div>
-        </div>
-
-        <!-- Programme Cards -->
-        <div class="news-grid" id="newsGrid">
+            <div class="article-content">
+                <h1>SFT Lecture 2025</h1>
+<p>The SFT Lecture 2025 took place on July 15, 2025, from 2 PM to 6 PM. This Science for Technology lecture was delivered by Professor Chinthaka Liyanage. The programme was specifically held for students in the tech stream.</p>
+            </div>
             
-            <a href="news/sports-programme-with-foreign-students/index.html" class="news-card has-thumbnail" data-year="2026" data-month="1">
+        <section class="gallery-section">
+            <h2>Photos & Videos</h2>
+            <div class="gallery-grid">
                 
-                <img src="news/sports-programme-with-foreign-students/thumbnail.jpg" class="card-bg-thumb" alt="" loading="lazy">
-                <div class="card-overlay"></div>
-                
-                <div class="news-card-header">
-                    <h3>Sports programme with foreign students</h3>
-                    <div class="news-card-date">
-                        <span>January 18, 2026</span>
-                    </div>
-                </div>
-                <div class="news-card-body">
-                    <p>Matara YMCA youth and students from Norway, USA, and Germany held a motivational sports programme near Matara beach.</p>
-                </div>
-                <div class="news-card-footer">
-                    <span class="footer-btn">View Programme →</span>
-                </div>
-            </a>
+            <div class="gallery-item" onclick="openImageViewer('1-2-1703948078392.jpg')">
+                <img src="1-2-1703948078392.jpg" alt="1 2 1703948078392" loading="lazy">
+            </div>
             
-            <a href="news/christmas-programme-at-ganegoda-purana-viharaya/index.html" class="news-card has-thumbnail" data-year="2025" data-month="12">
-                
-                <img src="news/christmas-programme-at-ganegoda-purana-viharaya/thumbnail.jpg" class="card-bg-thumb" alt="" loading="lazy">
-                <div class="card-overlay"></div>
-                
-                <div class="news-card-header">
-                    <h3>Christmas programme at ganegoda purana viharaya </h3>
-                    <div class="news-card-date">
-                        <span>December 19, 2025</span>
-                    </div>
-                </div>
-                <div class="news-card-body">
-                    <p>A Christmas carol programme was held at Ganegoda Purana Viharaya on December 19, 2025, to promote religious harmony.</p>
-                </div>
-                <div class="news-card-footer">
-                    <span class="footer-btn">View Programme →</span>
-                </div>
-            </a>
-            
-            <a href="news/sft-lecture-2025/index.html" class="news-card has-thumbnail" data-year="2025" data-month="7">
-                
-                <img src="news/sft-lecture-2025/thumbnail.jpg" class="card-bg-thumb" alt="" loading="lazy">
-                <div class="card-overlay"></div>
-                
-                <div class="news-card-header">
-                    <h3>SFT Lecture 2025</h3>
-                    <div class="news-card-date">
-                        <span>July 15, 2025</span>
-                    </div>
-                </div>
-                <div class="news-card-body">
-                    <p>Professor Chinthaka Liyanage delivered a Science for Technology lecture for tech stream students on July 15, 2025.</p>
-                </div>
-                <div class="news-card-footer">
-                    <span class="footer-btn">View Programme →</span>
-                </div>
-            </a>
-            
-        </div>
-
-        <!-- No Results Message -->
-        <div class="no-results" id="noResults">
-            <div class="no-results-icon">🔍</div>
-            <h3>No programmes found</h3>
-            <p>No programmes match the selected period. Try adjusting your filters.</p>
-        </div>
+            </div>
+        </section>
         
+        </article>
     </main>
+
+    <!-- Media Viewer Modal -->
+    <div id="viewerOverlay" class="viewer-overlay" onclick="closeViewer(event)">
+        <button class="viewer-close" onclick="closeViewer(event)">&times;</button>
+        <div class="viewer-content" id="viewerContent"></div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -878,44 +808,46 @@
     </footer>
 
     <script>
-        
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
 
-        function filterProgrammes() {
-            const yearFilter = document.getElementById('yearFilter').value;
-            const monthFilter = document.getElementById('monthFilter').value;
-            const cards = document.querySelectorAll('.news-card');
-            const noResults = document.getElementById('noResults');
-            
-            let visibleCount = 0;
+        function openImageViewer(src) {
+            const overlay = document.getElementById('viewerOverlay');
+            const content = document.getElementById('viewerContent');
+            content.innerHTML = '<img src="' + src + '" alt="Full size image">';
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-            cards.forEach(card => {
-                const cardYear = card.dataset.year;
-                const cardMonth = card.dataset.month;
-                
-                const matchYear = yearFilter === 'all' || cardYear === yearFilter;
-                const matchMonth = monthFilter === 'all' || cardMonth === monthFilter;
+        function openVideoViewer(src) {
+            const overlay = document.getElementById('viewerOverlay');
+            const content = document.getElementById('viewerContent');
+            content.innerHTML = '<video src="' + src + '" controls autoplay></video>';
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-                if (matchYear && matchMonth) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            // Show/hide no results message
-            if (noResults) {
-                if (visibleCount === 0) {
-                    noResults.classList.add('visible');
-                } else {
-                    noResults.classList.remove('visible');
+        function closeViewer(event) {
+            if (event) {
+                const target = event.target;
+                // Only close if clicking overlay background or close button
+                if (!target.closest('.viewer-content') || target.closest('.viewer-close')) {
+                    const overlay = document.getElementById('viewerOverlay');
+                    const content = document.getElementById('viewerContent');
+                    overlay.classList.remove('active');
+                    content.innerHTML = '';
+                    document.body.style.overflow = '';
                 }
             }
         }
-    
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeViewer({ target: document.getElementById('viewerOverlay') });
+            }
+        });
     </script>
 </body>
 </html>
